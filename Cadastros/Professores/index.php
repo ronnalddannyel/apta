@@ -13,7 +13,7 @@ require_once('../../../../db.php');
 
 
 <div class="pagetitle">
-      <h1>Reposições florestais 100% concluídas</h1>
+      <h1>Cadastro de professores</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Início</a></li>

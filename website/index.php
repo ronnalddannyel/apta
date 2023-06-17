@@ -1,3 +1,5 @@
+<?php $upload_dir = '../Cadastros/Professores/ArquivosEnviados/';?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -211,7 +213,7 @@
   <div class="container-fluid p-0">
     <div class="row no-gutters">
       <div class="col-xl-4 col-lg-5 align-self-end">
-        <img class="img-fluid w-100" src="images/banner/banner-feature.png" alt="banner-feature">
+        <img class="img-fluid w-100" src="images/banner/qtd.png" alt="banner-feature">
       </div>
       <div class="col-xl-8 col-lg-7">
         <div class="row feature-blocks bg-gray justify-content-between">
@@ -285,7 +287,7 @@ Credibilidade em zelar pela honestidade e pela transparência dos serviços pre
 <!-- /cta -->
 
 <!-- success story -->
-<section class="section bg-cover" data-background="images/backgrounds/success-story.jpg">
+<section class="section bg-cover" data-background="images/backgrounds/FotosAlunos.png">
   <div class="container">
     <div class="row">
       <div class="col-lg-6 col-sm-4 position-relative success-video">
@@ -295,9 +297,9 @@ Credibilidade em zelar pela honestidade e pela transparência dos serviços pre
       </div>
       <div class="col-lg-6 col-sm-8">
         <div class="bg-white p-5">
-          <h2 class="section-title">Como funciona?</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
+          <h2 class="section-title">AULAS EXTRACURRICULARES ALERR </h2>
+          <p>Explicar sobre</p>
+          <p></p>
         </div>
       </div>
     </div>
@@ -352,13 +354,24 @@ Credibilidade em zelar pela honestidade e pela transparência dos serviços pre
       <div class="col-12">
         <h2 class="section-title">Professores</h2>
       </div>
+<?php
+              
+$sql = "SELECT * FROM Professores";
+         require_once('../../../db.php');             
+                      $result = mysqli_query($conn, $sql);
+                      if(mysqli_num_rows($result)){
+                        while($row = mysqli_fetch_assoc($result)){
+
+?>
+
+     
       <!-- Professor -->
       <div class="col-lg-4 col-sm-6 mb-5 mb-lg-0">
         <div class="card border-0 rounded-0 hover-shadow">
-          <img class="card-img-top rounded-0" src="images/teachers/teacher-1.jpg" alt="teacher">
+          <img class="card-img-top rounded-0" src="<?php echo $upload_dir.$row['FotoDePerfil'] ?>" alt="teacher">
           <div class="card-body">
             <a href="teacher-single.html">
-              <h4 class="card-title">Nome</h4>
+              <h4 class="card-title"><?php echo $row['Nome']; ?></h4>
             </a>
             <p>Professor</p>
             <ul class="list-inline">
@@ -370,42 +383,11 @@ Credibilidade em zelar pela honestidade e pela transparência dos serviços pre
           </div>
         </div>
       </div>
-      <!-- Professor -->
-      <div class="col-lg-4 col-sm-6 mb-5 mb-lg-0">
-        <div class="card border-0 rounded-0 hover-shadow">
-          <img class="card-img-top rounded-0" src="images/teachers/teacher-1.jpg" alt="teacher">
-          <div class="card-body">
-            <a href="teacher-single.html">
-              <h4 class="card-title">Nome</h4>
-            </a>
-            <p>Professor</p>
-            <ul class="list-inline">
-              <li class="list-inline-item"><a class="text-color" href="#"><i class="ti-facebook"></i></a></li>
-              <li class="list-inline-item"><a class="text-color" href="#"><i class="ti-twitter-alt"></i></a></li>
-              <li class="list-inline-item"><a class="text-color" href="#"><i class="ti-google"></i></a></li>
-              <li class="list-inline-item"><a class="text-color" href="#"><i class="ti-linkedin"></i></a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <!-- Professor -->
-      <div class="col-lg-4 col-sm-6 mb-5 mb-lg-0">
-        <div class="card border-0 rounded-0 hover-shadow">
-          <img class="card-img-top rounded-0" src="images/teachers/teacher-1.jpg" alt="teacher">
-          <div class="card-body">
-            <a href="teacher-single.html">
-              <h4 class="card-title">Nome</h4>
-            </a>
-            <p>Professor</p>
-            <ul class="list-inline">
-              <li class="list-inline-item"><a class="text-color" href="#"><i class="ti-facebook"></i></a></li>
-              <li class="list-inline-item"><a class="text-color" href="#"><i class="ti-twitter-alt"></i></a></li>
-              <li class="list-inline-item"><a class="text-color" href="#"><i class="ti-google"></i></a></li>
-              <li class="list-inline-item"><a class="text-color" href="#"><i class="ti-linkedin"></i></a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      <?php
+                              }
+                            }
+                          
+                          ?>
 
 <!-- blog -->
 <section class="section pt-0">

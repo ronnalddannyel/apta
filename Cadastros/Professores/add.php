@@ -8,42 +8,30 @@ if (isset($_POST['Enviar'])) {
 
 
 	
-    $NumeroAutex = $_POST['NumeroAutex'];
-    $Detentor = $_POST['Detentor'];
-	$CpfCnpj = $_POST['CpfCnpj'];
-	$Tipo = $_POST['Tipo'];
-	$ImovelVinculado = $_POST['ImovelVinculado'];
-	$EmpresaVinculada = $_POST['EmpresaVinculada'];
-	$Licenca = $_POST['Licenca'];
-	$Fomentadora = $_POST['Fomentadora'];
-	$SaldoExistenteMetrosQuadradosDof = $_POST['SaldoExistenteMetrosQuadradosDof'];
-	$VolumetriaLiberadaMetrosQuadrados = $_POST['VolumetriaLiberadaMetrosQuadrados'];
-	$TotalMetrosQuadrados = $_POST['TotalMetrosQuadrados'];
-	$NumeroProcesso = $_POST['NumeroProcesso'];
-	$ParcelaUm = $_POST['ParcelaUm'];
-	$DataLiberacao = $_POST['DataLiberacao'];
-	$DataVencimento = $_POST['DataVencimento'];
-	$Obs = $_POST['Obs'];
-
-
-
-
-	$NomeDoComprovanteUm = $_FILES['ComprovanteUm']['name'];
-	$NomeTemporarioComprovanteUm = $_FILES['ComprovanteUm']['tmp_name'];
-	$TamanhoDoComprovanteUm = $_FILES['ComprovanteUm']['size'];
-
-
-
-	if($NomeDoComprovanteUm){
-
-		$ExtensaoComprovanteUm = strtolower(pathinfo($NomeDoComprovanteUm, PATHINFO_EXTENSION));
-		$PermitirExtensaoComprovanteUm  = array('pdf');
-		$NovoNomeComprovanteUm = time().'_'.rand(1000,9999).'.'.$ExtensaoComprovanteUm;
-
-		if(in_array($ExtensaoComprovanteUm, $PermitirExtensaoComprovanteUm)){
-			if($TamanhoDoComprovanteUm < 5000000){
+    $Nome = $_POST['Nome'];
+    $Curso = $_POST['Curso'];
+	$Especialidade = $_POST['Especialidade'];
 	
-					move_uploaded_file($NomeTemporarioComprovanteUm ,$upload_dir.$NovoNomeComprovanteUm); 
+
+
+
+
+	$NomeDoFotoDePerfil = $_FILES['FotoDePerfil']['name'];
+	$NomeTemporarioFotoDePerfil = $_FILES['FotoDePerfil']['tmp_name'];
+	$TamanhoDoFotoDePerfil = $_FILES['FotoDePerfil']['size'];
+
+
+
+	if($NomeDoFotoDePerfil){
+
+		$ExtensaoFotoDePerfil = strtolower(pathinfo($NomeDoFotoDePerfil, PATHINFO_EXTENSION));
+		$PermitirExtensaoFotoDePerfil  = array('jpeg', 'jpg', 'png');
+		$NovoNomeFotoDePerfil = time().'_'.rand(1000,9999).'.'.$ExtensaoFotoDePerfil;
+
+		if(in_array($ExtensaoFotoDePerfil, $PermitirExtensaoFotoDePerfil)){
+			if($TamanhoDoFotoDePerfil < 5000000){
+	
+					move_uploaded_file($NomeTemporarioFotoDePerfil ,$upload_dir.$NovoNomeFotoDePerfil); 
 			}else{
 				$errorMsg = 'Arquivo muito grande';
 				echo $errorMsg;
@@ -70,8 +58,8 @@ if (isset($_POST['Enviar'])) {
 
 
 		if(!isset($errorMsg)){
-			$sql = "insert into ReposicoesConcluidasCemPorCento (NumeroAutex, Detentor, CpfCnpj, Tipo, ImovelVinculado, EmpresaVinculada, Licenca, Fomentadora,SaldoExistenteMetrosQuadradosDof, VolumetriaLiberadaMetrosQuadrados, TotalMetrosQuadrados, NumeroProcesso, ParcelaUm, DataLiberacao, DataVencimento, Obs, ComprovanteUm)
-					values('".$NumeroAutex."','".$Detentor."', '".$CpfCnpj."','".$Tipo."', '".$ImovelVinculado."','".$EmpresaVinculada."','".$Licenca."', '".$Fomentadora."', '".$SaldoExistenteMetrosQuadradosDof."', '".$VolumetriaLiberadaMetrosQuadrados."', '".$TotalMetrosQuadrados."', '".$NumeroProcesso."', '".$ParcelaUm."', '".$DataLiberacao."', '".$DataVencimento."', '".$Obs."', '".$NovoNomeComprovanteUm."' )";
+			$sql = "insert into Professores (Nome, Curso, Especialidade, FotoDePerfil)
+					values('".$Nome."','".$Curso."', '".$Especialidade."','".$NovoNomeFotoDePerfil."' )";
 			$result = mysqli_query($conn, $sql);
 			if($result){
 				$successMsg = 'Cadastro concluído';

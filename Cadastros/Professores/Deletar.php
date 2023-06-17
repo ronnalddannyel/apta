@@ -6,11 +6,11 @@ if (isset($_POST['Ret'])) {
     $id =  base64_decode($_POST['IdEstoque']);
 
     // Verifique se o registro existe antes de deletar
-    $sql = "SELECT * FROM ReposicoesConcluidasCemPorCento WHERE id = $id";
+    $sql = "SELECT * FROM Professores WHERE id = $id";
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
         // O registro existe, execute a deleção
-        $deleteSql = "DELETE FROM ReposicoesConcluidasCemPorCento WHERE id = $id";
+        $deleteSql = "DELETE FROM Professores WHERE id = $id";
         if (mysqli_query($conn, $deleteSql)) {
             
             // Deleção bem-sucedida
