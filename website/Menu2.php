@@ -34,7 +34,7 @@
   <div class="navigation w-100">
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-dark p-0">
-        <a class="navbar-brand" href="index.php"><img src="images/logo.png" alt="logo" style="height:100px;width: 200px;"></a>
+        <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo" style="height:100px;width: 200px;"></a>
     
         <button class="navbar-toggler rounded-0" type="button" data-toggle="collapse" data-target="#navigation"
           aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
@@ -81,14 +81,6 @@
             </div>
             <div class="modal-body">
                 <div class="login">
-
-<?php include 'DadosSocioEconomico.php';?>
-
-
-
-
-
-<!--
                     <form action="#" class="row">
                         <div class="col-12">
                             <input type="text" class="form-control mb-3" id="signupPhone" name="signupPhone" placeholder="Phone">
@@ -106,9 +98,6 @@
                             <button type="submit" class="btn btn-primary">Cadastrar</button>
                         </div>
                     </form>
-
---->
-
                 </div>
             </div>
         </div>
@@ -125,30 +114,20 @@
                 </button>
             </div>
             <div class="modal-body">
-
-           
-                <form action="../login.php" class="row">
+                <form action="#" class="row">
                     <div class="col-12">
-                        <!-- <input type="text" class="form-control mb-3" id="loginPhone" name="loginPhone" placeholder="CPF">--->
-                        <input name="usuario"  class="form-control mb-3 cpfOuCnpj" id="loginPhone"  placeholder="Seu CPF" autofocus="">
+                        <input type="text" class="form-control mb-3" id="loginPhone" name="loginPhone" placeholder="Phone">
                     </div>
-
                     <div class="col-12">
-                       <!--  <input type="password" class="form-control mb-3" id="loginPassword" name="loginPassword" placeholder="Senha">--->
-                        <input name="senha" type="password" class="form-control mb-3" id="loginPassword" placeholder="Sua senha">
+                        <input type="text" class="form-control mb-3" id="loginName" name="loginName" placeholder="Name">
+                    </div>
+                    <div class="col-12">
+                        <input type="password" class="form-control mb-3" id="loginPassword" name="loginPassword" placeholder="Password">
                     </div>
                     <div class="col-12">
                         <button type="submit" class="btn btn-primary">LOGIN</button>
                     </div>
-                </form> 
-
-
-
-
-
-
-
-
+                </form>
             </div>
         </div>
     </div>

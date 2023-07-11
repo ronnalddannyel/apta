@@ -30,7 +30,7 @@
 <ul class="sidebar-nav" id="sidebar-nav">
 
   <li class="nav-item">
-    <a class="nav-link " href="<?php echo $url ?>PainelFemarhExterno/">
+    <a class="nav-link " href="<?php echo $url ?>/PainelAptaInterno/index.php">
       <i class="bi bi-grid"></i>
       <span>Minha Conta</span>
     </a>
